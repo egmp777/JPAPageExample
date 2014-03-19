@@ -4,13 +4,6 @@ import java.io.Serializable;
 import java.lang.String;
 import java.util.List;
 import java.util.ArrayList;
-
-
-//import javax.persistence.*;
-
-
-//import org.hibernate.jpa.*;
-//import static javax.persistence.AccessType.FIELD;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -44,8 +37,7 @@ public class Department implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-    @Id  //@GeneratedValue(strategy=GenerationType.IDENTITY)
-
+    @Id
 	@Column(name = "DEPT_ID")
 	private long dept_id;
 	@Column(name = "NAME", unique=true)

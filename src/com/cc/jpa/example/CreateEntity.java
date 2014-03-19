@@ -18,52 +18,51 @@ public class CreateEntity {
           new CreateEntity();
         
         try {
-          //  Employee2 employee1 = createEntity.createEmployee("Albert", "Einstein", "ae@mail.com");
-            //Employee2 employee2 = createEntity.createEmployee("David", "Hilbert", "dh@mail.com");
-            ///Employee2 employee3 = createEntity.createEmployee("Terry", "Dactyll", "td@gmail.com");
-        	//Employee2 employee4 = createEntity.createEmployee("Aby", "Bell", "ab@gmail.com");
-           // Employee2 employee5 = createEntity.createEmployee("Max", "Kan", "mk@gmail.com");
-        	//createEntity.createDepartment("SOFTWARE");
-         // createEntity.createDepartment("ACCOUNTS");
-        	//createEntity.createDepartment("MARKETING");
-        	//createEntity.createDepartment("FINANCE");
-        	//createEntity.createDepartment("PRODUCTION");
-        	//createEntity.createDepartment("SALES");
-        	//createEntity.createDepartment("HHRR");
+          Employee2 employee1 = createEntity.createEmployee("Albert", "Einstein", "ae@mail.com");
+            Employee2 employee2 = createEntity.createEmployee("David", "Hilbert", "dh@mail.com");
+            Employee2 employee3 = createEntity.createEmployee("Terry", "Dactyll", "td@gmail.com");
+        	Employee2 employee4 = createEntity.createEmployee("Aby", "Bell", "ab@gmail.com");
+           Employee2 employee5 = createEntity.createEmployee("Max", "Kan", "mk@gmail.com");
+        	createEntity.createDepartment("SOFTWARE");
+            createEntity.createDepartment("ACCOUNTS");
+        	createEntity.createDepartment("MARKETING");
+        	createEntity.createDepartment("FINANCE");
+        	createEntity.createDepartment("PRODUCTION");
+        	createEntity.createDepartment("SALES");
+        	createEntity.createDepartment("HHRR");
 
-          // createEntity.addEmployeeToDept(employee1, "SOFTWARE");
-           // createEntity.addEmployeeToDept(employee2, "SOFTWARE");
-           //createEntity.addEmployeeToDept(employee3, "ACCOUNTS");
-        	//createEntity.addEmployeeToDept(employee5, "ACCOUNTS");
+            createEntity.addEmployeeToDept(employee1, "SOFTWARE");
+            createEntity.addEmployeeToDept(employee2, "SOFTWARE");
+            createEntity.addEmployeeToDept(employee3, "ACCOUNTS");
+        	createEntity.addEmployeeToDept(employee5, "ACCOUNTS");
         	createEntity.getAllEmployees();
         } catch (Exception e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+                        e.printStackTrace();
         }
 	}
 
 	public  void createDepartment(String departmentName) {
-		// TODO Auto-generated method stub
+		
 		try {
-            // Start EntityManagerFactory
+            
             EntityManagerFactory emf = Persistence
                     .createEntityManagerFactory("punit");
 
-            // First unit of work
+           
             EntityManager entityManager = emf.createEntityManager();
             EntityTransaction entityTransaction = entityManager
                     .getTransaction();
             entityTransaction.begin();
             
             Department department = new Department(departmentName);
-           // department.getEmployees().add(employee.getId());
+           
             entityManager.persist(department);
 
             entityTransaction.commit();
             entityManager.close();
             emf.close();
         } catch (Exception e) {
-            // TODO Auto-generated catch block
+            
             e.printStackTrace();
         }     
 	}
@@ -71,13 +70,12 @@ public class CreateEntity {
 	
 	public Employee2 createEmployee(String firstName, String lastName,
 			String email) {
-		// TODO Auto-generated method stub
+		
 		try {
-            // Start EntityManagerFactory
-            EntityManagerFactory emf = Persistence
+                        EntityManagerFactory emf = Persistence
                     .createEntityManagerFactory("punit");
 
-            // First unit of work
+            
             EntityManager entityManager = emf.createEntityManager();
             EntityTransaction entityTransaction = entityManager
                     .getTransaction();
@@ -92,7 +90,7 @@ public class CreateEntity {
             
             return employee;
         } catch (Exception e) {
-            // TODO Auto-generated catch block
+           
             e.printStackTrace();
         }
 
@@ -101,13 +99,12 @@ public class CreateEntity {
 
 	
 	public void addEmployeeToDept(Employee2 employee, String departmentName) {
-		// TODO Auto-generated method stub
+		
 		try {
-            // Start EntityManagerFactory
             EntityManagerFactory emf = Persistence
                     .createEntityManagerFactory("punit");
 
-            // First unit of work
+            
             EntityManager entityManager = emf.createEntityManager();
             EntityTransaction entityTransaction = entityManager
                     .getTransaction();
@@ -130,25 +127,21 @@ public class CreateEntity {
             entityManager.close();
             emf.close();
         } catch (Exception e) {
-            // TODO Auto-generated catch block
+           
             e.printStackTrace();
         }       
 	}
 	public void getAllEmployees(){
 		try {
-            // Start EntityManagerFactory
             EntityManagerFactory emf = Persistence
                     .createEntityManagerFactory("punit");
 
-            // First unit of work
+            
             EntityManager entityManager = emf.createEntityManager();
             EntityTransaction entityTransaction = entityManager
                     .getTransaction();
             entityTransaction.begin();
-          //  Query query = 
-            //        entityManager.createNamedQuery("findDepartmentByName");
-              //  query.setParameter("name", "ACCOUNTS");
-          Query query = 
+                    Query query =
            entityManager.createQuery("From Department");
            query.setMaxResults(3);
            
@@ -176,11 +169,11 @@ public class CreateEntity {
             
           
 
-            //entityTransaction.commit();
+            
             entityManager.close();
             emf.close();
         } catch (Exception e) {
-            // TODO Auto-generated catch block
+            
             e.printStackTrace();
         }       
 	}

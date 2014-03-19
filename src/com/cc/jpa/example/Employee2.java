@@ -15,9 +15,8 @@ import javax.persistence.*;
         query="select OBJECT(e) from Employee2 e where e.LastName = :LastName")
 public class Employee2 implements Serializable {
 
-	//@ManyToOne
-	//Department department;
-	@Id //@GeneratedValue(strategy=GenerationType.IDENTITY)
+	
+	@Id
 	@Column(name = "ID")
 	private long Id;
 	@Column(name = "FIRSTNAME")
@@ -31,7 +30,7 @@ public class Employee2 implements Serializable {
 	
 	
 	public Employee2() {
-		//super();
+		
 	}   
 	public Employee2(String firstName2, String lastName2, String email2) {
 		super();
